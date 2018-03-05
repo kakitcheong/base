@@ -1,0 +1,11 @@
+{
+  "name": "base-dev-project",
+  "version": "0.0.1",
+  "description": "A base project structure for web development project.",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/kakitcheong/base.git"
+  },
+  "author": "kc-slg",
+  "license": "ISC"
+}
