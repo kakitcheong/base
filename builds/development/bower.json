@@ -1,0 +1,21 @@
+{
+  "name": "development",
+  "homepage": "https://github.com/kakitcheong/base",
+  "authors": [
+    "kc-slg"
+  ],
+  "description": "Basic website development",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "motion-ui": "^1.2.3",
+    "foundation-sites": "^6.4.3"
+  }
+}

@@ -1,0 +1,19 @@
+/*** importing foundation ***/
+@import "foundation";
+@import 'motion-ui';
+
+@include foundation-everything;
+
+////////////////////////////////////////////////////////////////////////////////
+//  custom section                                                            //
+////////////////////////////////////////////////////////////////////////////////
+
+/*** importing compass ***/
+@import 'compass';
+@include global-reset;
+
+/*** importing scut ***/
+@import 'scut';
+
+/*** importing modular scale ***/
+@import 'modularscale';
