@@ -37,13 +37,13 @@ var sassPaths = [
 htmlSources = ['builds/development/*.html'];
 
 var onError = function (err) {  
-	$.gutil.beep();
+	$.util.beep();
 	console.log(err);
 };
 
 // tasks
 gulp.task('log', function(){
-	
+		
 });
 
 gulp.task('js', function(){
@@ -74,7 +74,7 @@ gulp.task('compass', function(){
 			]
 		})
 		.on('error', $.util.log))
-		.pipe(gulp.dest(outputDir + 'css'))
+		.pipe(gulp.dest(outputDir + 'stylesheets'))
 		.pipe($.connect.reload())
 });
 
@@ -111,6 +111,26 @@ gulp.task('images', function(){
 		})))
 		.pipe($.gulpif(env === 'production', gulp.dest(outputDir + 'images')))
 		.pipe(connect.reload())
+});
+
+gulp.task('bowerJS', function(){
+	var filterJS = $.filter('**/*.js', { restore: true });
+	gulp.src('builds/development/bower.json')
+		.pipe($.mainBowerFiles())
+		.pipe(filterJS)
+		.pipe($.concat('vendor.js'))
+		.pipe($.if(env === 'production', $.uglify()))
+		.pipe(gulp.dest(outputDir + 'js'))
+});
+
+gulp.task('bowerCSS', function(){
+	var filterCSS = $.filter('**/*.css', { restore: true });
+	gulp.src('builds/development/bower.json')
+		.pipe($.mainBowerFiles())
+		.pipe(filterCSS)
+		.pipe($.concat('vendor.css'))
+		.pipe($.if(env === 'production', $.uglify()))
+		.pipe(gulp.dest(outputDir + 'stylesheets'))
 });
 
 gulp.task('default', ['js', 'compass', 'html', 'connect', 'watch'] );
